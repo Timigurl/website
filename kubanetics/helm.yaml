@@ -1,0 +1,38 @@
+char_root_dir/
+  chart.yaml: contains the chart information.
+  LICENSE: optional, contains the chart license.
+  README.md: optional.
+  values.yaml: optional, contains the char values default configuration.
+  values.schema.json: optional, defines the structure of values.yaml.
+  charts/: contains every chart dependency of the current one.
+  crds/: custom resources definitions.
+  templates/: templates that combined with values will generate the valid Kubernetes manifests.
+   NOTES.txt: optional, intended for usage notes.
+
+
+apiVersion: v2
+name: falco
+version: 2.0.17
+appVersion: 0.32.2
+description: Falco #optional
+keywords: #optional
+  - monitoring
+  - security
+  - alerting
+  - metric
+  - troubleshooting
+  - run-time
+home: https://falco.org  #optional
+icon:  #optional https://raw.githubusercontent.com/cncf/artwork/master/projects/falco/horizontal/color/falco-horizontal-color.svg
+sources:  #optional
+  - https://github.com/falcosecurity/falco
+maintainers:  #optional
+  - name: The Falco Authors
+    email: cncf-falco-dev@lists.cncf.io
+dependencies:  #optional
+  - name: falcosidekick
+    version: "0.5.4"
+    condition: falcosidekick.enabled
+    repository: https://falcosecurity.github.io/charts
+    
+      
