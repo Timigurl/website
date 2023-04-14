@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stages  ('Build dockerfile') {
+        stage  ('Build dockerfile') {
             steps {
 
                 sh 'docker build -t project .'
@@ -9,7 +9,7 @@ pipeline {
 
             }
         }
-        stages ('docker run') {
+        stage ('docker run') {
             steps {
 
                 sh 'docker run -p 90:80 -d project'
